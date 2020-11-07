@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <title>
+        Homepage
+    </title>
+    <link rel="stylesheet" href="CSS/Homepage.css">
+    <style>
+        .collapsible {
+            cursor: pointer;
+            padding: 18px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #555;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="Header">
+            <p id="SiteName">Misho's Market</p>
+            <form id="loginForm" action="">
+                <input type="text" name="" id="name" class="form-control" placeholder="Username">
+                <input type="password" name="" id="pass" class="form-control" placeholder="Password">
+                <!-- <div class="row mt-3">
+                    <div class="col-md-6"><label for="check"><input type="checkbox" name="" id="check" class="btn">
+                            Remember Me</label></div>
+                    <div class="col-md-6 text-right"><button class="btn btn-sm btn-primary">Sign In</button></div>
+                </div> -->
+            </form>
+        </div>
+        <form class="form-inline d-flex justify-content-center md-form form-sm">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </form>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Default</a> -->
+        </nav>
+        <div class="nav-side-menu">
+            <div class="brand">Categories</div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="collapsible">
+                        <a href="#"><i class="fas fa-desktop fa-lg"></i> Technologies</a>
+                    </li>
+                    <ul class="content" id="products">
+                        <li class="collapsible">
+                            <a href="#"><i class="fas fa-mobile fa-lg"></i> Mobiles </a>
+                        </li>
+                        <ul class="content">
+                            <li>Huawei</li>
+                            <li>Samsung</li>
+                            <li>Iphone</li>
+                        </ul>
+                        <li><a href="#"><i class="fas fa-laptop"></i>Laptops</a></li>
+
+                    </ul>
+
+
+                    <li data-toggle="collapse" data-target="#service" class="collapsed">
+                        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="service">
+                        <li>New Service 1</li>
+                        <li>New Service 2</li>
+                        <li>New Service 3</li>
+                    </ul>
+
+
+                    <li data-toggle="collapse" data-target="#new" class="collapsed">
+                        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="new">
+                        <li>New New 1</li>
+                        <li>New New 2</li>
+                        <li>New New 3</li>
+                    </ul>
+
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user fa-lg"></i> Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users fa-lg"></i> Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    console.log(coll)
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+
+</html>
