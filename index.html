@@ -1,133 +1,152 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <title>
         Homepage
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/Homepage.css">
-    <style>
-        .collapsible {
-            cursor: pointer;
-            padding: 18px;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-        }
-
-        .active,
-        .collapsible:hover {
-            background-color: #555;
-        }
-
-        .collapsible:after {
-            content: '\002B';
-            color: white;
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
-        }
-
-        .active:after {
-            content: "\2212";
-        }
-
-        .content {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/Card.css">
+    <link rel="stylesheet" href="CSS/Grid.css">
+    <link rel="stylesheet" href="CSS/Sidenav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
 <body>
+
     <div class="container">
         <div class="Header">
-            <p id="SiteName">Misho's Market</p>
-            <form id="loginForm" action="">
-                <input type="text" name="" id="name" class="form-control" placeholder="Username">
-                <input type="password" name="" id="pass" class="form-control" placeholder="Password">
-                <!-- <div class="row mt-3">
-                    <div class="col-md-6"><label for="check"><input type="checkbox" name="" id="check" class="btn">
-                            Remember Me</label></div>
-                    <div class="col-md-6 text-right"><button class="btn btn-sm btn-primary">Sign In</button></div>
-                </div> -->
-            </form>
-        </div>
-        <form class="form-inline d-flex justify-content-center md-form form-sm">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </form>
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Default</a> -->
-        </nav>
-        <div class="nav-side-menu">
-            <div class="brand">Categories</div>
-            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+            <!-- <p id="SiteName">Misho's Market</p> -->
+            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-            <div class="menu-list">
+            <div id="id01" class="modal">
 
-                <ul id="menu-content" class="menu-content collapse out">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                        </a>
-                    </li>
+                <form class="modal-content animate" action="/action_page.php" method="post">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                            title="Close Modal">&times;</span>
+                        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                    </div>
 
-                    <li class="collapsible">
-                        <a href="#"><i class="fas fa-desktop fa-lg"></i> Technologies</a>
-                    </li>
-                    <ul class="content" id="products">
-                        <li class="collapsible">
-                            <a href="#"><i class="fas fa-mobile fa-lg"></i> Mobiles </a>
-                        </li>
-                        <ul class="content">
-                            <li>Huawei</li>
-                            <li>Samsung</li>
-                            <li>Iphone</li>
-                        </ul>
-                        <li><a href="#"><i class="fas fa-laptop"></i>Laptops</a></li>
+                    <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
 
-                    </ul>
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
 
+                        <button type="submit">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
 
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
-                        <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="service">
-                        <li>New Service 1</li>
-                        <li>New Service 2</li>
-                        <li>New Service 3</li>
-                    </ul>
-
-
-                    <li data-toggle="collapse" data-target="#new" class="collapsed">
-                        <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
-                    </li>
-                    <ul class="sub-menu collapse" id="new">
-                        <li>New New 1</li>
-                        <li>New New 2</li>
-                        <li>New New 3</li>
-                    </ul>
-
-
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-user fa-lg"></i> Profile
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-users fa-lg"></i> Users
-                        </a>
-                    </li>
-                </ul>
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+                </form>
             </div>
+
+            <div class="topnav">
+                <a class="active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="search-container">
+                    <form action="/search-results.html">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="grid-container">
+
+                <div class="sidenav">
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="content">
+                    <div class="grid-item">
+                        <div class="card">
+                            <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+                            <h1>Tailored Jeans</h1>
+                            <p class="price">$19.99</p>
+                            <p>Some text about the jeans..</p>
+                            <p><button>Add to Cart</button></p>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="card">
+                            <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+                            <h1>Tailored Jeans</h1>
+                            <p class="price">$19.99</p>
+                            <p>Some text about the jeans..</p>
+                            <p><button>Add to Cart</button></p>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="card">
+                            <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+                            <h1>Tailored Jeans</h1>
+                            <p class="price">$19.99</p>
+                            <p>Some text about the jeans..</p>
+                            <p><button>Add to Cart</button></p>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="card">
+                            <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+                            <h1>Tailored Jeans</h1>
+                            <p class="price">$19.99</p>
+                            <p>Some text about the jeans..</p>
+                            <p><button>Add to Cart</button></p>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="card">
+                            <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
+                            <h1>Tailored Jeans</h1>
+                            <p class="price">$19.99</p>
+                            <p>Some text about the jeans..</p>
+                            <p><button>Add to Cart</button></p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <p>footer</p>
+                </footer>
+            </div>
+
+
         </div>
+        <!-- <ul>
+            <li><a href="#" class="active">
+                    <i class="fas fa-home icon"></i>
+                    Home</a></li>
+            <li><a href="#">
+                    <i class="fas fa-rss icon"></i>
+                    News</a></li>
+            <li><a href="#">
+                    <i class="fas fa-address-book icon"></i>
+                    Contact</a></li>
+            <li><a href="#">
+                    <i class="fas fa-user icon"></i>
+                    About</a></li>
+        </ul> -->
+
+
+
+
+
+
+
     </div>
 
 </body>
@@ -139,23 +158,6 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    console.log(coll)
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    }
-</script>
 
 
 </html>
