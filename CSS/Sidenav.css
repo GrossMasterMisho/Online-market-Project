@@ -1,0 +1,29 @@
+.sidenav {
+  height: auto;
+  z-index: 1;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  grid-row-end: span 2;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
