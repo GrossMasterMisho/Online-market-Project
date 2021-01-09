@@ -20,6 +20,7 @@
 
 
     <div class="container">
+
         <div id="id01" class="modal">
 
             <form class="modal-content animate" action="/action_page.php" method="post">
@@ -30,51 +31,51 @@
                 " alt="Avatar" class="avatar">
                 </div>
 
-                <div class="container">
+                <div class="loginContainer">
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="uname" required>
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
 
-                    <button type="submit">Login</button>
+                    <button type="submit" class="loginbtn">Login</button>
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
                 </div>
 
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                <div class="loginContainer" style="background-color:#f1f1f1">
+                    <button type="button" class = "loginbtn" onclick="document.getElementById('id01').style.display='none'"
                         class="cancelbtn">Cancel</button>
                     <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>
         </div>
-    </div>
+  
 
     <div class="grid-container">
 
         <div class="topnav">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-            <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <span class="openbtn" onclick="openNav()">&#9776; Categories</span>
             <div class="search-container">
                 <form action="/search-results.html">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+            <button class="loginbtn homepageLoginBtn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+        </div>
+        
+        <div class=side1>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </div>
         </div>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-        </div>
         <div class="content">
             <div class="grid-item">
                 <div class="card">
@@ -130,6 +131,7 @@
     </div>
 
     </div>
+</div>
 
 </body>
 
