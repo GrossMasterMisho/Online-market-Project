@@ -58,6 +58,12 @@ img.avatar {
   padding: 16px;
 }
 
+.registerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 span.psw {
   float: right;
   padding-top: 16px;
