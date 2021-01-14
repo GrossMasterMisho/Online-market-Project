@@ -225,7 +225,7 @@ span.psw {
   background: #ccc;
 }
 
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .topnav .search-container {
     float: none;
   }
@@ -241,4 +241,76 @@ span.psw {
   .topnav input[type="text"] {
     border: 1px solid #ccc;
   }
-} */
+}
+
+.dropdown {
+  overflow: hidden;
+  display: none;
+  height: 100%;
+  min-width: 100px;
+  margin-right: 10px;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  height: 100%;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  justify-content: center;
+  align-items: center;
+  font: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navbar links on hover */
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  margin-right: 20px;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#dropdown-label {
+  color: whitesmoke;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 5px;
+}

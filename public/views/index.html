@@ -37,7 +37,7 @@
             <input
               type="text"
               placeholder="Enter Username"
-              name="uname"
+              name="username"
               required
             />
 
@@ -45,9 +45,11 @@
             <input
               type="password"
               placeholder="Enter Password"
-              name="psw"
+              name="password"
               required
             />
+
+            <h4 id="errorMessage" style="color: red"></h4>
 
             <button type="submit" class="loginbtn">Login</button>
             <label>
@@ -86,9 +88,21 @@
             class="loginbtn homepageLoginBtn"
             onclick="document.getElementById('id01').style.display='block'"
             style="width: auto"
+            id="loginBtn"
           >
             Login
           </button>
+          <div class="dropdown" id="dropdown">
+            <button class="dropbtn" id="dropbtn">
+              <label id="dropdown-label">label</label>
+              <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="logout">logout</a>
+              <a href="#">Cart</a>
+              <a href="#">Add Product</a>
+            </div>
+          </div>
         </div>
 
         <div class="side1">
@@ -161,17 +175,9 @@
     </div>
   </body>
 
+  <script src="/static/JS/Cookies.js"></script>
+  <script src="/static/JS/Pathname.js"></script>
   <script>
-    // Get the modal
-    var modal = document.getElementById("id01");
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
     }

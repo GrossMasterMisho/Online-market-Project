@@ -93,3 +93,12 @@ button:hover {
     padding: 30px 60px 40px 60px;
   }
 }
+
+.error {
+  color: red;
+  display: none;
+}
+
+#emailOrUsernameExists {
+  display: none;
+}
