@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verification</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/CSS/Registration.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div>
+      <form name="verificationForm" method="POST" action="/passwordRecovery">
+        <a href="/" class="backArrow"
+          ><i class="fa fa-arrow-left" aria-hidden="true"></i
+        ></a>
+        <h4 class="text-warning text-center pt-5">
+          Type email in for Verification
+        </h4>
+        <h3 id="emailOrUsernameExists"><%= errorMessage %></h3>
+        <label>
+          <input
+            type="email"
+            class="input"
+            name="email"
+            placeholder="EMAIL"
+            required
+          />
+          <div class="line-box">
+            <div class="line"></div>
+          </div>
+        </label>
+
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  </body>
+</html>

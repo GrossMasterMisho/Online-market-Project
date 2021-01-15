@@ -21,4 +21,24 @@ router.post("/login", (req, res, next) => {
   userController.login(req, res, next);
 });
 
+router.get("/confirmation", (req, res, next) => {
+  userController.confirmationPost(req, res, next);
+});
+
+router.get("/forgetPassword", (req, res, next) => {
+  res.sendFile(public + "/authentication/emailVerification.html");
+});
+
+router.get("/passwordRecovery", (req, res, next) => {
+  res.sendFile(public + "/authentication/passwordRecovery.html");
+});
+
+router.post("/passwordRecovery", (req, res, next) => {
+  userController.passwordRecovery(req, res, next);
+});
+
+router.post("/password", (req, res, next) => {
+  userController.changePassword(req, res, next);
+});
+
 module.exports = router;

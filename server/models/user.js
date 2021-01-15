@@ -12,10 +12,10 @@ const userschema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  // password: {
-  //   type: String,
-  //   required: true,
-  // },
+  isVerified: { type: Boolean, default: false },
+  password: String,
+  passwordResetToken: String,
+  passwordResetExpires: Date,
 });
 
 userschema.plugin(passportLocalMongoose);

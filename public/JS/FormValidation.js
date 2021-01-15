@@ -1,10 +1,17 @@
-const validateForm = () => {
-  const password = document.forms["registrationForm"]["password"].value;
-  const confirm = document.forms["registrationForm"]["confirm"].value;
+const validateForm = (form) => {
+  const password = document.forms[form]["password"].value;
+  const confirm = document.forms[form]["confirm"].value;
+  const err = document.getElementById("passwordNotMatch");
   if (!(password === confirm)) {
-    document.getElementById("passwordNotMatch").style.display = "block";
+    err.style.display = "block";
+    err.innerHTML = "Passwords don't match";
   } else {
-    document.getElementById("passwordNotMatch").style.display = "none";
+    err.style.display = "none";
   }
-  return password === confirm;
+
+  if (password.length < 6) {
+    err.style.display = "block";
+    err.innerHTML = "Password should be minimum 6 letters long.";
+  }
+  return password === confirm && password.length >= 6;
 };

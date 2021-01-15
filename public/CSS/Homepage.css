@@ -225,24 +225,6 @@ span.psw {
   background: #ccc;
 }
 
-@media screen and (max-width: 600px) {
-  .topnav .search-container {
-    float: none;
-  }
-  .topnav a,
-  .topnav input[type="text"],
-  .topnav .search-container button {
-    float: none;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type="text"] {
-    border: 1px solid #ccc;
-  }
-}
-
 .dropdown {
   overflow: hidden;
   display: none;

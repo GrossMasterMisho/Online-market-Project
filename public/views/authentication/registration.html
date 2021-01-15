@@ -18,7 +18,7 @@
         name="registrationForm"
         method="POST"
         action="/register"
-        onsubmit="return validateForm()"
+        onsubmit="return validateForm(name)"
       >
         <a href="/" class="backArrow"
           ><i class="fa fa-arrow-left" aria-hidden="true"></i
@@ -27,7 +27,7 @@
         <h3 id="emailOrUsernameExists"><%= errorMessage %></h3>
         <label>
           <input
-            type="text"
+            type="email"
             class="input"
             name="email"
             placeholder="EMAIL"
