@@ -4,6 +4,8 @@ var { public } = require("../config/config");
 var userController = require("../controllers/userController");
 
 router.use("/register", require("./registerRouter.js"));
+router.use("/login", require("./loginRouter.js"));
+router.use("/newProduct", require("./newProductRouter.js"));
 
 router.get("/", function (req, res) {
   res.sendFile(public + "/index.html");
@@ -11,14 +13,6 @@ router.get("/", function (req, res) {
 
 router.get("/logout", function (req, res) {
   userController.logout(req, res);
-});
-
-router.get("/login", function (req, res) {
-  res.sendFile(public + "/index.html");
-});
-
-router.post("/login", (req, res, next) => {
-  userController.login(req, res, next);
 });
 
 router.get("/confirmation", (req, res, next) => {

@@ -1,0 +1,10 @@
+.paper {
+  border-radius: 10px;
+  height: 800px;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  background-color: white;
+}

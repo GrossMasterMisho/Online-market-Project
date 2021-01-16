@@ -49,6 +49,11 @@ module.exports = {
         if (err) {
           return next(err);
         }
+        if (req.body.remember) {
+          req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000; // Cookie expires after 30 days
+        } else {
+          req.session.cookie.expires = false; // Cookie expires at end of session
+        }
         res.cookie("username", req.user.username);
         return res.redirect("/?user=" + req.user.username);
       });

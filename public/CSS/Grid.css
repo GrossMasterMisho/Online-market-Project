@@ -34,6 +34,10 @@
   grid-area: foot;
 }
 
+.paper {
+  grid-area: main;
+}
+
 @media screen and (max-width: 865px) {
   .content {
     display: grid;

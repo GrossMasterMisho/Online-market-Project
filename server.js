@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var cors = require("cors");
+var session = require("express-session");
 
 var corsOptions = {
   origin: "http://localhost:3001",
@@ -11,6 +12,9 @@ var corsOptions = {
 
 var passport = require("passport");
 
+app.use(
+  session({ secret: "myLittleSecret", resave: true, saveUninitialized: false })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
