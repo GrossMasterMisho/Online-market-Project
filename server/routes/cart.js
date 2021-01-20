@@ -1,0 +1,23 @@
+const User = require("../models/user");
+const express = require("express");
+const router = express.Router();
+
+router.all("*", function (req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+});
+
+router.get("/", function (req, res) {
+  User.findById(req.user._id, function (err, user) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    res.status(200).send(user.cart);
+  });
+});
+
+module.exports = router;

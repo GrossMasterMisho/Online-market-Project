@@ -12,6 +12,7 @@ const userschema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  cart: [{ type: mongoose.Types.ObjectId, ref: "Product" }],
   isVerified: { type: Boolean, default: false },
   password: String,
   passwordResetToken: String,

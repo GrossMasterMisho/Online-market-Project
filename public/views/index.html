@@ -101,8 +101,8 @@
             </button>
             <div class="dropdown-content">
               <a href="logout">logout</a>
-              <a href="#">Cart</a>
-              <a href="newProduct">Add Product</a>
+              <a href="/cart">Cart</a>
+              <a href="/product/newProduct">Add Product</a>
             </div>
           </div>
         </div>
@@ -119,71 +119,7 @@
           </div>
         </div>
 
-        <div class="content">
-          <div class="grid-item">
-            <div class="card">
-              <img
-                src="data:image/jpeg;base64,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"
-                alt="Denim Jeans"
-                style="width: 100%"
-              />
-              <h1>Tailored Jeans</h1>
-              <p class="price">$19.99</p>
-              <p>Some text about the jeans..</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="card">
-              <img src="jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
-              <h1>Tailored Jeans</h1>
-              <p class="price">$19.99</p>
-              <p>Some text about the jeans..</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="card">
-              <img src="jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
-              <h1>Tailored Jeans</h1>
-              <p class="price">$19.99</p>
-              <p>Some text about the jeans..</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="card">
-              <img src="jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
-              <h1>Tailored Jeans</h1>
-              <p class="price">$19.99</p>
-              <p>Some text about the jeans..</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="card">
-              <img src="jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
-              <h1>Tailored Jeans</h1>
-              <p class="price">$19.99</p>
-              <p>Some text about the jeans..</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <% items.forEach(function(image) { %>
-          <div class="grid-item">
-            <div class="card">
-              <img
-                src="data:image/<%=image.img.contentType%>;base64,
-                         <%=image.img.data.toString('base64')%>"
-              />
-              <h1>Tailored Jeans</h1>
-              <p class="price">$19.99</p>
-              <p>Some text about the jeans..</p>
-              <p><button>Add to Cart</button></p>
-            </div>
-          </div>
-          <% }) %>
-        </div>
+        <div class="content"></div>
         <footer class="footer">
           <p>footer</p>
         </footer>
@@ -193,6 +129,7 @@
 
   <script src="/static/JS/Cookies.js"></script>
   <script src="/static/JS/Pathname.js"></script>
+  <script src="/static/JS/FetchProducts.js"></script>
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -201,30 +138,5 @@
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
-
-    const promiseOfSomeData = fetch("/something")
-      .then((r) => r.json())
-      .then((data) => {
-        return data;
-      });
-
-    window.onload = async () => {
-      let someData = await promiseOfSomeData;
-      promiseOfSomeData.then((res) => {
-        var content = document.getElementsByClassName("content");
-        res.forEach((image) => {
-          var product = document.createElement("div");
-          product.className = "grid-item";
-          var card = document.createElement("div");
-          card.className = "card";
-          var img = document.createElement("img");
-          img.src =
-            "data:image/" + image.img.contentType + ";base64," + image.img.data;
-          card.appendChild(img);
-          product.appendChild(card);
-          document.getElementsByClassName("content")[0].appendChild(product);
-        });
-      });
-    };
   </script>
 </html>

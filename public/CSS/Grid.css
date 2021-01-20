@@ -13,6 +13,7 @@
 }
 
 .grid-container {
+  background: rgb(240, 225, 225);
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-gap: 10px 20px;
