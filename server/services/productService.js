@@ -23,6 +23,10 @@ module.exports = {
   fetchAllProducts: async () => {
     let result = [];
     await Product.find({}, function (err, products) {
+      if (err || !products) {
+        console.log(err);
+        return [];
+      }
       var productMap = [];
 
       products.forEach(function (product) {
@@ -41,13 +45,20 @@ module.exports = {
   },
 
   addToCart: async (productId, user) => {
+    var cart = [...user.cart];
+    for (pr in cart) {
+      const id = JSON.stringify(cart[pr]);
+      // const product_id = JSON.stringify(product._id);
+      if (id === '"' + productId + '"') {
+        throw new Error("no such product");
+      }
+    }
     return await Product.findById(productId, async function (err, product) {
       if (err) {
         throw err;
       }
-      if (!product) throw "no such product";
-      var cart = [...user.cart];
-      cart.push(product._id);
+      if (!product) throw new Error("no such product");
+      cart.push(productId);
       User.findById(user._id, function (err, user) {
         if (err) {
           throw err;

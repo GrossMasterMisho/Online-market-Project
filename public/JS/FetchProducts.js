@@ -38,6 +38,19 @@ window.onload = async () => {
         }
       });
       card.appendChild(document.createElement("p").appendChild(addToCart));
+      card.addEventListener("click", async () => {
+        try {
+          await fetch("/cart", {
+            method: "get",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      });
       product.appendChild(card);
       content.appendChild(product);
 

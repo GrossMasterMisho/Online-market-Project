@@ -4,6 +4,10 @@ body {
   height: 100%;
 }
 
+img {
+  width: 50px;
+  height: 100px;
+}
 /* Full-width input fields */
 input[type="text"],
 input[type="password"] {

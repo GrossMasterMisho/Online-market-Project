@@ -1,0 +1,28 @@
+version: "3.4"
+
+services:
+  onlinemarketproject:
+    image: onlinemarketproject
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: misho
+    ports:
+      - 27018:27017
+    volumes:
+      - data:/data/db
+
+volumes:
+  data:

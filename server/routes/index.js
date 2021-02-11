@@ -8,13 +8,13 @@ router.use("/login", require("./loginRouter.js"));
 router.use("/product", require("./productRouter.js"));
 router.use("/cart", require("./cart.js"));
 
-router.all("*", function (req, res, next) {
-  if (req.path === "/" || req.isAuthenticated()) {
-    next();
-  } else {
-    res.redirect("/login");
-  }
-});
+// router.all("*", function (req, res, next) {
+//   if (req.path === "/" || req.isAuthenticated()) {
+//     next();
+//   } else {
+//     res.redirect("/login");
+//   }
+// });
 
 router.get("/", function (req, res) {
   res.sendFile(public + "/index.html");
