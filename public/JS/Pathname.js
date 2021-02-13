@@ -26,3 +26,7 @@ window.onclick = function (event) {
     }
   }
 })();
+
+function returnToHomePage() {
+  window.location.href = "/";
+}

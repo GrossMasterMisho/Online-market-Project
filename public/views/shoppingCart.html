@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Homepage</title>
+    <title>Shopping Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/CSS/Cart.css" />
+    <link rel="stylesheet" href="/static/CSS/Topnav.css" />
+    <link rel="stylesheet" href="/static/CSS/Sidenav.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
   <body>
+    <div class="container">
+      <div class="grid-container">
+        <div class="topnav">
+          <div class="logo-container" onclick="returnToHomePage()">
+            <img class="logo" src="static/images/Logo.png" />
+          </div>
+          <span class="openbtn" onclick="openNav()">&#9776; </span>
+          <div class="search-container">
+            <form action="/search-results.html">
+              <input type="text" placeholder="Search.." name="search" />
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <button
+            class="loginbtn homepageLoginBtn"
+            onclick="document.getElementById('id01').style.display='block'"
+            style="width: auto"
+            id="loginBtn"
+          >
+            Login
+          </button>
+          <div class="dropdown" id="dropdown">
+            <button class="dropbtn" id="dropbtn">
+              <label id="dropdown-label">label</label>
+              <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="logout">logout</a>
+              <a href="/cart">Cart</a>
+              <a href="/product/newProduct">Add Product</a>
+              <a href="/orders">Order History</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="side1">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+              >&times;</a
+            >
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="shopping-cart">
       <!-- Title -->
       <div class="title">Shopping Bag</div>
@@ -21,5 +72,16 @@
       </button>
     </div>
   </body>
+  <script src="/static/JS/Cookies.js"></script>
   <script src="/static/JS/ShowCart.js"></script>
+  <script src="/static/JS/Pathname.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
 </html>

@@ -69,7 +69,7 @@ const createCartItem = (product) => {
   inp.type = "text";
   inp.value = 1;
   inp.id = "quantity" + product._id;
-
+  inp.className = "inp";
   plusButton.addEventListener("click", () => {
     const input = document.getElementById("quantity" + product._id);
     input.value = Number(input.value) + 1;

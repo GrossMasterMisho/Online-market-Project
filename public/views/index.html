@@ -4,6 +4,7 @@
     <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/CSS/Homepage.css" />
+    <link rel="stylesheet" href="/static/CSS/Topnav.css" />
     <link rel="stylesheet" href="/static/CSS/Card.css" />
     <link rel="stylesheet" href="/static/CSS/Grid.css" />
     <link rel="stylesheet" href="/static/CSS/Sidenav.css" />
@@ -79,6 +80,9 @@
 
       <div class="grid-container">
         <div class="topnav">
+          <div class="logo-container" onclick="returnToHomePage()">
+            <img class="logo" src="static/images/Logo.png" />
+          </div>
           <span class="openbtn" onclick="openNav()">&#9776; </span>
           <div class="search-container">
             <form action="/search-results.html">
