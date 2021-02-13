@@ -30,3 +30,7 @@ window.onclick = function (event) {
 function returnToHomePage() {
   window.location.href = "/";
 }
+
+function redirectToCart() {
+  window.location.href = "/cart";
+}

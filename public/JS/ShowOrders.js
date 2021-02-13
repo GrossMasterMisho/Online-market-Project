@@ -42,6 +42,7 @@ const createCartItem = (product, index) => {
   inp.value = product.quantity;
   inp.id = "quantity" + index;
   inp.disabled = true;
+  inp.className = "inp";
   quantity.appendChild(inp);
 
   item.appendChild(quantity);

@@ -16,7 +16,7 @@
       <div class="grid-container">
         <div class="topnav">
           <div class="logo-container" onclick="returnToHomePage()">
-            <img class="logo" src="static/images/Logo.png" />
+            <img class="logo" src="/static/images/Logo.png" />
           </div>
           <span class="openbtn" onclick="openNav()">&#9776; </span>
           <div class="search-container">
@@ -25,6 +25,9 @@
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
+          <span class="fa" id="cart-icon" onclick="redirectToCart()"
+            >&#xf07a;</span
+          >
           <button
             class="loginbtn homepageLoginBtn"
             onclick="document.getElementById('id01').style.display='block'"
@@ -39,8 +42,7 @@
               <i class="fa fa-caret-down" aria-hidden="true"></i>
             </button>
             <div class="dropdown-content">
-              <a href="logout">logout</a>
-              <a href="/cart">Cart</a>
+              <a href="/logout">logout</a>
               <a href="/product/newProduct">Add Product</a>
               <a href="/orders">Order History</a>
             </div>
@@ -66,7 +68,6 @@
     </div>
   </body>
   <script src="/static/JS/Cookies.js"></script>
-  <script src="/static/JS/ShowCart.js"></script>
   <script src="/static/JS/Pathname.js"></script>
   <script src="/static/JS/ShowOrders.js"></script>
   <script>
