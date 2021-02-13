@@ -68,4 +68,21 @@ module.exports = {
       });
     });
   },
+  getProduct: async (id) => {
+    let result = null;
+    await Product.findById(id, async function (err, product) {
+      if (err) {
+        throw err;
+      }
+      if (!product) throw new Error("no such product");
+      result = {
+        ...product.toObject(),
+        img: {
+          contentType: product.img.contentType,
+          data: product.img.data.toString("base64"),
+        },
+      };
+    });
+    return result;
+  },
 };

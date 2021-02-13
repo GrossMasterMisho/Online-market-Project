@@ -30,4 +30,14 @@ module.exports = {
       })
       .catch(() => res.status(400).send("can't add product"));
   },
+
+  getProduct: async (req, res) => {
+    const result = productService.getProduct(req.params.id);
+
+    result
+      .then((response) => {
+        return res.json(response);
+      })
+      .catch((err) => console.error(err));
+  },
 };

@@ -13,7 +13,7 @@ body {
 
 .shopping-cart {
   width: 750px;
-  height: 423px;
+  height: auto;
   margin: 80px auto;
   background: #ffffff;
   box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
@@ -34,22 +34,17 @@ body {
 
 .item {
   padding: 20px 30px;
-  height: 120px;
+  height: 150px;
   display: flex;
-}
-
-.item:nth-child(3) {
-  border-top: 1px solid #e1e8ee;
   border-bottom: 1px solid #e1e8ee;
 }
 
 .buttons {
   position: relative;
   padding-top: 30px;
-  margin-right: 60px;
+  margin-right: 10px;
 }
-.delete-btn,
-.like-btn {
+.delete-btn {
   display: inline-block;
   cursor: pointer;
 }
@@ -57,17 +52,6 @@ body {
   width: 18px;
   height: 17px;
   background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
-}
-
-.like-btn {
-  position: absolute;
-  top: 9px;
-  left: 15px;
-  background: url("twitter-heart.png");
-  width: 60px;
-  height: 60px;
-  background-size: 2900%;
-  background-repeat: no-repeat;
 }
 
 .is-active {
@@ -91,10 +75,18 @@ body {
 }
 
 .image {
-  margin-right: 50px;
+  margin-right: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px;
 }
 
-Let’s add some basic style to product name and description. .description {
+img {
+  width: 50px;
+  height: 100px;
+}
+
+.description {
   padding-top: 10px;
   margin-right: 60px;
   width: 115px;
@@ -119,6 +111,7 @@ Let’s add some basic style to product name and description. .description {
 .quantity {
   padding-top: 20px;
   margin-right: 60px;
+  margin-left: 20px;
 }
 .quantity input {
   -webkit-appearance: none;

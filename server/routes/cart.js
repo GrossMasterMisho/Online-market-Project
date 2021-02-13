@@ -23,4 +23,10 @@ router.get("/", function (req, res) {
   // });
 });
 
+router.get("/products", function (req, res) {
+  if (!req.user) return;
+  const cart = req.user.cart;
+  return res.json(cart);
+});
+
 module.exports = router;

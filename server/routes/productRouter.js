@@ -28,4 +28,8 @@ router.post("/addToCart", async (req, res) => {
   productController.addToCart(req, res);
 });
 
+router.get("/:id", async (req, res) => {
+  productController.getProduct(req, res);
+});
+
 module.exports = router;
