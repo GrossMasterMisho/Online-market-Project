@@ -7,28 +7,18 @@ const promiseOfSomeData = fetch("/cart/products")
   });
 
 window.onload = async () => {
-  await promiseOfSomeData
-    .then((res) => {
-      res.forEach((id) => {
-        fetchProduct(id);
-      });
-    })
-    .catch((err) => console.log(err));
-};
-
-const fetchProduct = async (id) => {
-  await fetch("/product/" + id)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => createCartItem(data))
-    .catch((err) => console.log(err));
+  await promiseOfSomeData.then((res) => {
+    res.forEach((product) => {
+      createCartItem(product);
+    });
+  });
 };
 
 const createCartItem = (product) => {
   const shoppingCart = document.getElementsByClassName("shopping-cart")[0];
   const item = document.createElement("div");
   item.className = "item";
+  item.id = product._id;
   shoppingCart.appendChild(item);
   const buttons = document.createElement("div");
   buttons.className = "buttons";
@@ -36,10 +26,22 @@ const createCartItem = (product) => {
   deleteButton.className = "delete-btn";
   deleteButton.innerHTML =
     '<i class="fa fa-trash-o" style="font-size: 24px"></i>';
+  deleteButton.addEventListener("click", () => {
+    fetch("cart/delete/" + product._id, {
+      method: "DELETE",
+    }).then((response) => {
+      if (response.status === 200) {
+        item.style.display = "none";
+        const input = document.getElementById("quantity" + product._id);
+        if (input.value === "0") return;
+        input.value = Number(input.value) - 1;
+        total.innerHTML = Number(total.innerHTML) - 549.0;
+      }
+    });
+  });
   buttons.appendChild(deleteButton);
   item.appendChild(buttons);
   const img = document.createElement("div");
-  console.log(product);
   img.className = "image";
   img.innerHTML =
     "<img src=" +
@@ -71,12 +73,14 @@ const createCartItem = (product) => {
   plusButton.addEventListener("click", () => {
     const input = document.getElementById("quantity" + product._id);
     input.value = Number(input.value) + 1;
+    total.innerHTML = Number(total.innerHTML) + 549.0;
   });
 
   minusButton.addEventListener("click", () => {
     const input = document.getElementById("quantity" + product._id);
     if (input.value === "0") return;
     input.value = Number(input.value) - 1;
+    total.innerHTML = Number(total.innerHTML) - 549.0;
   });
 
   quantity.appendChild(plusButton);
@@ -85,28 +89,34 @@ const createCartItem = (product) => {
   item.appendChild(quantity);
 
   item.insertAdjacentHTML("beforeend", '<div class="total-price">$549</div>');
+  const total = document.getElementById("price");
+  total.innerHTML = Number(total.innerHTML) + 549.25;
 };
 
-const w = () => {
-  //   return <div class="item">
-  //   <div class="buttons">
-  //     <span class="delete-btn"
-  //       ><i class="fa fa-trash-o" style="font-size: 24px"></i
-  //     ></span>
-  //   </div>
-  //   <div class="image">
-  //     <img src="item-1.png" alt="" />
-  //   </div>
-  //   <div class="description">
-  //     <span>Common Projects</span>
-  //     <span>Bball High</span>
-  //     <span>White</span>
-  //   </div>
-  //   <div class="quantity">
-  //     <button class="plus-btn" type="button" name="button">+</button>
-  //     <input type="text" name="name" value="1" />
-  //     <button class="minus-btn" type="button" name="button">-</button>
-  //   </div>
-  //   <div class="total-price">$549</div>
-  // </div>
-};
+function buy() {
+  const products = document.getElementsByClassName("item");
+  let boughtItems = [];
+  for (let product of products) {
+    if (product.style.display !== "none") {
+      boughtItems.push({
+        id: product.id,
+        value: document.getElementById("quantity" + product.id).value,
+      });
+    }
+  }
+  fetch("/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(boughtItems),
+  }).then(() => {
+    console.log("fetching");
+    fetch("/cart/deleteAll", {
+      method: "DELETE",
+    }).then(() => {
+      window.location.href = "/";
+    });
+  });
+}

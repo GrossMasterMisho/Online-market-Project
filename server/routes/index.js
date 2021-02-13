@@ -3,10 +3,11 @@ var router = express.Router();
 var { public } = require("../config/config");
 var userController = require("../controllers/userController");
 
-router.use("/register", require("./registerRouter.js"));
-router.use("/login", require("./loginRouter.js"));
-router.use("/product", require("./productRouter.js"));
-router.use("/cart", require("./cart.js"));
+router.use("/register", require("./registerRouter"));
+router.use("/login", require("./loginRouter"));
+router.use("/product", require("./productRouter"));
+router.use("/cart", require("./cartRouter"));
+router.use("/orders", require("./orderRouter"));
 
 // router.all("*", function (req, res, next) {
 //   if (req.path === "/" || req.isAuthenticated()) {

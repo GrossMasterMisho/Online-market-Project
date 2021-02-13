@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const achievementHistorySchema = new mongoose.Schema({
+const orderHistorySchema = new mongoose.Schema({
   _userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -18,4 +18,4 @@ const achievementHistorySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("AchievementHistory", achievementHistorySchema);
+module.exports = mongoose.model("orderHistory", orderHistorySchema);

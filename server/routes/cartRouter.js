@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const cartController = require("../controllers/cartController");
 const express = require("express");
 const router = express.Router();
 const { public } = require("../config/config");
@@ -13,20 +13,18 @@ router.all("*", function (req, res, next) {
 
 router.get("/", function (req, res) {
   res.sendFile(public + "/shoppingCart.html");
-
-  // User.findById(req.user._id, function (err, user) {
-  //   if (err) {
-  //     console.error(err);
-  //     return;
-  //   }
-  //   res.status(200).send(user.cart);
-  // });
 });
 
 router.get("/products", function (req, res) {
-  if (!req.user) return;
-  const cart = req.user.cart;
-  return res.json(cart);
+  cartController.getProducts(req, res);
+});
+
+router.delete("/delete/:id", function (req, res) {
+  cartController.deleteProductFromCart(req, res);
+});
+
+router.delete("/deleteAll", function (req, res) {
+  cartController.deleteAll(req, res);
 });
 
 module.exports = router;
