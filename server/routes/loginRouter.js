@@ -12,7 +12,7 @@ router.all("*", function (req, res, next) {
 });
 
 router.get("/", function (req, res) {
-  res.redirect("/");
+  res.sendFile(public + "/index.html");
 });
 
 router.post("/", function (req, res, next) {
