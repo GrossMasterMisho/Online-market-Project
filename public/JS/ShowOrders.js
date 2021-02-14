@@ -31,6 +31,9 @@ const createCartItem = (product, index) => {
     product.img.data +
     ' alt="" />';
   item.appendChild(img);
+  img.addEventListener("click", () => {
+    window.location.href = "/product/?id=" + product._id;
+  });
   const description = document.createElement("div");
   description.className = "description";
   description.innerHTML = "<span>" + product.name + "</span>";
@@ -47,5 +50,8 @@ const createCartItem = (product, index) => {
 
   item.appendChild(quantity);
 
-  item.insertAdjacentHTML("beforeend", '<div class="total-price">$549</div>');
+  item.insertAdjacentHTML(
+    "beforeend",
+    `<div class="total-price">${product.price}$</div>`
+  );
 };

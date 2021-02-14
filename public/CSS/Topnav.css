@@ -5,6 +5,7 @@
   flex-direction: row;
   justify-content: space-between;
   height: 60px;
+  width: 100%;
 }
 
 .topnav a {
@@ -98,9 +99,10 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  right: 0;
 }
 
 /* Links inside the dropdown */
@@ -111,7 +113,7 @@
   text-decoration: none;
   display: block;
   text-align: left;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 /* Add a grey background color to dropdown links on hover */

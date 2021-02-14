@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/CSS/Grid.css" />
     <link rel="stylesheet" href="/static/CSS/Sidenav.css" />
     <link rel="stylesheet" href="/static/CSS/Product.css" />
+    <link rel="stylesheet" href="/static/CSS/ProductForm.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,68 +17,6 @@
 
   <body>
     <div class="container">
-      <div id="id01" class="modal">
-        <form class="modal-content animate" action="/login" method="post">
-          <div class="imgcontainer">
-            <span
-              onclick="document.getElementById('id01').style.display='none'"
-              class="close"
-              title="Close Modal"
-              >&times;</span
-            >
-            <img
-              src="https://www.w3schools.com/howto/img_avatar2.png
-                "
-              alt="Avatar"
-              class="avatar"
-            />
-          </div>
-
-          <div class="loginContainer">
-            <label for="uname"><b>Username</b></label>
-            <input
-              type="text"
-              placeholder="Enter Username"
-              name="username"
-              required
-            />
-
-            <label for="psw"><b>Password</b></label>
-            <input
-              type="password"
-              placeholder="Enter Password"
-              name="password"
-              required
-            />
-
-            <h4 id="errorMessage" style="color: red"></h4>
-
-            <button type="submit" class="loginbtn">Login</button>
-            <label>
-              <input type="checkbox" checked="checked" name="remember" />
-              Remember me
-            </label>
-          </div>
-
-          <div class="loginContainer" style="background-color: #f1f1f1">
-            <button
-              type="button"
-              class="loginbtn"
-              onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn"
-            >
-              Cancel
-            </button>
-            <div class="registerContainer">
-              <a class="register" href="/register">Register</a>
-              <div class="psw">
-                Forgot <a href="/forgetPassword">password?</a>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-
       <div class="grid-container">
         <div class="topnav">
           <div class="logo-container" onclick="returnToHomePage()">
@@ -119,10 +58,9 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
               >&times;</a
             >
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="/?category=technology">Technology</a>
+            <a href="/?category=furniture">Furniture</a>
+            <a href="/?category=pets">Pets</a>
           </div>
         </div>
 
@@ -132,45 +70,102 @@
             method="POST"
             enctype="multipart/form-data"
           >
-            <div>
-              <label for="name">Image Title</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Name"
-                value=""
-                name="name"
-                required
-              />
+            <div class="row">
+              <div class="col-25">
+                <label class="label" for="name">Product Name</label>
+              </div>
+              <div class="col-75">
+                <input
+                  required
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Product Name"
+                />
+              </div>
             </div>
-            <div>
-              <label for="desc">Image Description</label>
-              <textarea
-                id="desc"
-                name="pesc"
-                value=""
-                rows="2"
-                placeholder="Description"
-                required
-              >
-              </textarea>
+            <div class="row">
+              <div class="col-25">
+                <label class="label" for="name">Seller Info</label>
+              </div>
+              <div class="col-75">
+                <input
+                  required
+                  type="text"
+                  id="seller"
+                  name="seller"
+                  placeholder="Seller Info"
+                />
+              </div>
             </div>
-            <div>
-              <label for="image">Upload Image</label>
-              <input type="file" id="image" name="image" value="" required />
+            <div class="row">
+              <div class="col-25">
+                <label for="tel">Telephone Number</label>
+              </div>
+              <div class="col-75">
+                <input
+                  required
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Telephone Number.."
+                />
+              </div>
             </div>
-            <div>
-              <label for="tel">Telephone</label>
-              <input type="tel" pattern="[9]{0-9}" required />
+            <div class="row">
+              <div class="col-25">
+                <label class="label" for="category">Category</label>
+              </div>
+              <div class="col-75">
+                <select id="category" name="category" required>
+                  <option value="technology">Technology</option>
+                  <option value="furniture">Furniture</option>
+                  <option value="pets">Pets</option>
+                </select>
+              </div>
             </div>
-            <div>
-              <button type="submit">Submit</button>
+            <div class="row">
+              <div class="col-25">
+                <label class="label" for="description">Description</label>
+              </div>
+              <div class="col-75">
+                <textarea
+                  id="description"
+                  name="description"
+                  placeholder="Write something.."
+                  style="height: 200px"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label class="label" for="Image">Image</label>
+              </div>
+              <div class="col-75">
+                <input type="file" id="image" name="image" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label class="label" for="price">Price</label>
+              </div>
+              <div class="col-75">
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  id="price"
+                  name="price"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <input type="submit" value="Submit" />
             </div>
           </form>
         </div>
-        <footer class="footer">
-          <p>footer</p>
-        </footer>
       </div>
     </div>
   </body>
@@ -191,10 +186,8 @@
         .querySelector('input[type="file"]')
         .addEventListener("change", function () {
           if (this.files && this.files[0]) {
-            var img = document.getElementById("myImg"); // $('img')[0]
-            console.log(img);
+            var img = document.getElementById("image"); // $('img')[0]
             img.src = URL.createObjectURL(this.files[0]); // set src to blob url
-            img.onload = imageIsLoaded;
           }
         });
     });

@@ -3,6 +3,11 @@
   margin: auto;
   text-align: center;
   font-family: arial;
+  cursor: pointer;
+}
+img {
+  width: auto;
+  height: 150px;
 }
 
 .price {

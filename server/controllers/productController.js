@@ -40,4 +40,14 @@ module.exports = {
       })
       .catch((err) => console.error(err));
   },
+
+  searchProduct: async (req, res) => {
+    const products = await productService.searchProduct(req.query.search);
+    return res.json(products);
+  },
+
+  searchByCategory: async (req, res) => {
+    const products = await productService.searchByCategory(req.query.category);
+    return res.json(products);
+  },
 };

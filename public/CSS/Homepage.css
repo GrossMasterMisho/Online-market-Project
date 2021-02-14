@@ -4,9 +4,9 @@ body {
   height: 100%;
 }
 
-img {
-  width: 50px;
-  height: 100px;
+.avatar {
+  width: 100px !important;
+  height: auto !important;
 }
 /* Full-width input fields */
 input[type="text"],
@@ -71,6 +71,7 @@ img.avatar {
   position: relative;
   top: 0;
   left: 0;
+  background: rgb(240, 225, 225);
 }
 
 .loginContainer {

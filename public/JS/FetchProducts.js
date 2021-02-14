@@ -1,24 +1,44 @@
-const promiseOfSomeData = fetch("/product/fetchProducts")
-  .then((r) => r.json())
-  .then((data) => {
-    return data;
-  });
+const promiseOfSomeData = (param, q) => {
+  const query = param ? q + param : "";
+  return fetch("/product/fetchProducts" + query)
+    .then((r) => r.json())
+    .then((data) => {
+      return data;
+    });
+};
 
 window.onload = async () => {
-  await promiseOfSomeData.then((res) => {
+  let urlParams = new URLSearchParams(window.location.search);
+  let myParam = urlParams.get("search");
+  let query = "?search=";
+  if (!myParam) {
+    myParam = urlParams.get("category");
+    query = "?category=";
+  }
+  await promiseOfSomeData(myParam, query).then((res) => {
     var content = document.getElementsByClassName("content")[0];
     res.forEach((image) => {
       var product = document.createElement("div");
       product.className = "grid-item";
       var card = document.createElement("div");
+
       card.className = "card";
       var img = document.createElement("img");
       img.src =
         "data:image/" + image.img.contentType + ";base64," + image.img.data;
+      card.addEventListener("click", (e) => {
+        if (e.target.tagName !== "BUTTON") {
+          window.location.href = "/product/?id=" + image._id;
+        }
+      });
       card.appendChild(img);
       var title = document.createElement("h1");
       title.innerHTML = image.name;
       card.appendChild(title);
+      var price = document.createElement("p");
+      price.className = "price";
+      price.innerHTML = image.price + "$";
+      card.appendChild(price);
       var addToCart = document.createElement("button");
       addToCart.innerHTML = "Add to Cart";
       addToCart.addEventListener("click", async () => {
@@ -53,11 +73,6 @@ window.onload = async () => {
       });
       product.appendChild(card);
       content.appendChild(product);
-
-      // <h1>Tailored Jeans</h1>
-      //     <p class="price">$19.99</p>
-      //     <p>Some text about the jeans..</p>
-      //     <p><button>Add to Cart</button></p>
     });
   });
 };

@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var { public } = require("../config/config");
 var userController = require("../controllers/userController");
+var productController = require("../controllers/productController");
 
 router.use("/register", require("./registerRouter"));
 router.use("/login", require("./loginRouter"));
@@ -43,6 +44,14 @@ router.post("/passwordRecovery", (req, res, next) => {
 
 router.post("/password", (req, res, next) => {
   userController.changePassword(req, res, next);
+});
+
+router.get("/search-results", (req, res, next) => {
+  productController.searchProduct(req, res, next);
+});
+
+router.get("/search", (req, res) => {
+  res.sendFile(public + "/search-results.html");
 });
 
 module.exports = router;

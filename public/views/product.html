@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shopping Cart</title>
+    <title>New Product</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/CSS/Cart.css" />
+    <link rel="stylesheet" href="/static/CSS/Homepage.css" />
     <link rel="stylesheet" href="/static/CSS/Topnav.css" />
+    <link rel="stylesheet" href="/static/CSS/Grid.css" />
     <link rel="stylesheet" href="/static/CSS/Sidenav.css" />
-
+    <link rel="stylesheet" href="/static/CSS/Product.css" />
+    <link rel="stylesheet" href="/static/CSS/ProductForm.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
+
   <body>
     <div class="container">
       <div class="grid-container">
@@ -19,9 +22,9 @@
           <div class="logo-container" onclick="returnToHomePage()">
             <img class="logo" src="/static/images/Logo.png" />
           </div>
-          <span class="openbtn" onclick="openNav()">&#9776; </span>
+          <span class="openbtn" onclick="openNav()">&#9776;</span>
           <div class="search-container">
-            <form action="/">
+            <form action="/search-results.html">
               <input type="text" placeholder="Search.." name="search" />
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -60,23 +63,16 @@
             <a href="/?category=pets">Pets</a>
           </div>
         </div>
+
+        <div class="paper" id="paper">
+        </div>
       </div>
     </div>
-    <div class="shopping-cart">
-      <!-- Title -->
-      <div class="title">Shopping Bag</div>
-    </div>
-    <div class="pay-wrapper">
-      <button id="pay-btn" class="pay-button" onclick="buy()">
-        <span>Pay</span>
-        <label id="price">0.00</label>
-        $
-      </button>
-    </div>
   </body>
+
   <script src="/static/JS/Cookies.js"></script>
-  <script src="/static/JS/ShowCart.js"></script>
   <script src="/static/JS/Pathname.js"></script>
+  <script src=/static/JS/ProductInfo.js></script>
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";

@@ -35,7 +35,7 @@ const createCartItem = (product) => {
         const input = document.getElementById("quantity" + product._id);
         if (input.value === "0") return;
         input.value = Number(input.value) - 1;
-        total.innerHTML = Number(total.innerHTML) - 549.0;
+        total.innerHTML = Number(total.innerHTML) - Number(product.price);
       }
     });
   });
@@ -50,6 +50,9 @@ const createCartItem = (product) => {
     ";base64," +
     product.img.data +
     ' alt="" />';
+  img.addEventListener("click", () => {
+    window.location.href = "/product/?id=" + product._id;
+  });
   item.appendChild(img);
   const description = document.createElement("div");
   description.className = "description";
@@ -70,17 +73,22 @@ const createCartItem = (product) => {
   inp.value = 1;
   inp.id = "quantity" + product._id;
   inp.className = "inp";
+  inp.disabled = true;
   plusButton.addEventListener("click", () => {
     const input = document.getElementById("quantity" + product._id);
     input.value = Number(input.value) + 1;
-    total.innerHTML = Number(total.innerHTML) + 549.0;
+    total.innerHTML = (Number(total.innerHTML) + Number(product.price)).toFixed(
+      2
+    );
   });
 
   minusButton.addEventListener("click", () => {
     const input = document.getElementById("quantity" + product._id);
     if (input.value === "0") return;
     input.value = Number(input.value) - 1;
-    total.innerHTML = Number(total.innerHTML) - 549.0;
+    total.innerHTML = (Number(total.innerHTML) - Number(product.price)).toFixed(
+      2
+    );
   });
 
   quantity.appendChild(plusButton);
@@ -88,9 +96,14 @@ const createCartItem = (product) => {
   quantity.appendChild(minusButton);
   item.appendChild(quantity);
 
-  item.insertAdjacentHTML("beforeend", '<div class="total-price">$549</div>');
+  item.insertAdjacentHTML(
+    "beforeend",
+    `<div class="total-price">${product.price}$</div>`
+  );
   const total = document.getElementById("price");
-  total.innerHTML = Number(total.innerHTML) + 549.25;
+  total.innerHTML = (Number(total.innerHTML) + Number(product.price)).toFixed(
+    2
+  );
 };
 
 function buy() {

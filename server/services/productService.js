@@ -8,13 +8,17 @@ module.exports = {
     var product = new Product({
       _userId: user._id,
       name: req.body.name,
-      desc: req.body.desc,
+      description: req.body.description,
       img: {
         data: fs.readFileSync(
           path.join(__dirname, "/../uploads/", req.file.filename)
         ),
         contentType: "image/png",
       },
+      price: req.body.price,
+      phone: req.body.phone,
+      category: req.body.category,
+      seller: req.body.seller,
     });
 
     return await Product.create(product);
@@ -83,6 +87,63 @@ module.exports = {
         },
       };
     });
+    return result;
+  },
+
+  searchProduct: async (searchParam) => {
+    let result = [];
+    await Product.find(
+      {
+        name: new RegExp(searchParam, "i"),
+      },
+      function (err, products) {
+        if (err || !products) {
+          console.log(err);
+          return [];
+        }
+        var productMap = [];
+
+        products.forEach(function (product) {
+          productMap.push({
+            ...product.toObject(),
+            img: {
+              contentType: product.img.contentType,
+              data: product.img.data.toString("base64"),
+            },
+          });
+        });
+
+        result = productMap;
+      }
+    );
+    return result;
+  },
+  searchByCategory: async (searchParam) => {
+    let result = [];
+    await Product.find(
+      {
+        category: searchParam,
+      },
+      function (err, products) {
+        if (err || !products) {
+          console.log(err);
+          return [];
+        }
+        var productMap = [];
+
+        products.forEach(function (product) {
+          productMap.push({
+            ...product.toObject(),
+            img: {
+              contentType: product.img.contentType,
+              data: product.img.data.toString("base64"),
+            },
+          });
+        });
+
+        result = productMap;
+      }
+    );
     return result;
   },
 };

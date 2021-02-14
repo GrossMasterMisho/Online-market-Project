@@ -36,7 +36,7 @@ body {
 
 .item {
   padding: 20px 30px;
-  height: 150px;
+  height: 180px;
   display: flex;
   border-bottom: 1px solid #e1e8ee;
   align-items: center;
@@ -85,8 +85,9 @@ body {
 }
 
 img {
-  width: 50px;
-  height: 100px;
+  width: auto;
+  height: 150px;
+  cursor: pointer;
 }
 
 .description {
@@ -194,7 +195,7 @@ button:focus,
   background-color: #44c767;
   border-radius: 42px;
   border: 1px solid #18ab29;
-  display: inline-block;
+  display: inline;
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
