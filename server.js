@@ -36,11 +36,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/misho", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose.connect(
+  "mongodb+srv://user:ExwerQuWBKdxGzRH@cluster0.zvhvf.mongodb.net/misho?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  }
+);
 
 mongoose.connection
   .once("open", function () {
